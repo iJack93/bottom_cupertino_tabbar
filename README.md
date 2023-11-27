@@ -9,8 +9,8 @@ The package provides extensive customization options, including the ability to a
     alt="An animated image of the BottomCupertinoTabbar in action" width="300"/>
 </p>
 <p align="center">
-    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png?raw=true" style="width: 200px; margin-right: 30px" alt="homepage preview">
-    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085943.png?raw=true" style="width: 200px;" alt="homepage preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png?raw=true" width="200" alt="homepage preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085943.png?raw=true" width="200" alt="homepage preview">
 </p>
 
 <p align="center">
@@ -80,8 +80,8 @@ The provided example showcases a `SimpleTabBar` class using `BottomCupertinoTabb
 Each tab is linked to a corresponding page and icon, with maintained state and navigation stack, as seen in the following images.
 
 <p align="center">
-    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png?raw=true" style="width: 300px; margin-right: 30px" alt="appBar preview">
-    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085903.png?raw=true" style="width: 300px" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png?raw=true" width="200" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085903.png?raw=true" width="200" alt="appBar preview">
 </p>
 
 ## Customization
@@ -181,8 +181,8 @@ Here is the code for the following example:
 
 
 <p align="center">
-    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png?raw=true" style="width: 300px; margin-right: 30px" alt="appBar preview">
-    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085903.png?raw=true" style="width: 300px" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png?raw=true" width="200" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085903.png?raw=true" width="200" alt="appBar preview">
 </p>
 
 ```dart
