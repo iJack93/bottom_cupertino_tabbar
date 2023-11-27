@@ -1,11 +1,7 @@
-import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/bonus.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/contacts.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/home.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/notifications.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
 
+import '../pages/pages.dart';
 
 class SimpleTabBar extends StatefulWidget {
   const SimpleTabBar({super.key});
@@ -29,7 +25,6 @@ class _SimpleTabBarState extends State<SimpleTabBar> {
         if (index != model.currentTab) {
           model.changePage(index);
         } else {
-          //force remain on index 0
           if (nestedNavigator[index]?.currentContext != null) {
             Navigator.of(nestedNavigator[index]!.currentContext!).popUntil((route) => route.isFirst);
           }
