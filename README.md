@@ -5,8 +5,8 @@ The package provides extensive customization options, including the ability to a
 ---
 
 <p align="center">
-  <img src="example/assets/screenshots/recording.gif"
-    alt="An animated image of the iOS in-app purchase UI" width="300"/>
+  <img src="[example/assets/screenshots/recording.gif](https://firebasestorage.googleapis.com/v0/b/github-resources-8f78f.appspot.com/o/public_resources%2Frecording.gif?alt=media&token=c0689388-ce53-4b07-a760-c48b5337ffa7)"
+    alt="An animated image of the BottomCupertinoTabbar in action" width="300"/>
 </p>
 <p align="center">
     <img src="example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 200px; margin-right: 30px" alt="appBar preview">
