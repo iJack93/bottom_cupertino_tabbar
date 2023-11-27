@@ -1,6 +1,4 @@
 import 'package:bottom_cupertino_tabbar_example/main_page.dart';
-import 'package:bottom_cupertino_tabbar_example/simple_tabbar.dart';
-import 'package:bottom_cupertino_tabbar_example/tabbar_with_centered_button.dart';
 import 'package:flutter/material.dart';
 
 void main() {
