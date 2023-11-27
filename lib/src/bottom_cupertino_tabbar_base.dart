@@ -7,20 +7,45 @@ import 'package:bottom_cupertino_tabbar/src/tabbar_models/bottom_cupertino_tabba
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+/// BottomCupertinoTabbar is a StatefulWidget for creating a customizable Cupertino-style bottom navigation bar.
+/// It supports custom tab items, nested navigation, and optional floating action buttons.
 class BottomCupertinoTabbar extends StatefulWidget {
-
+  /// The color used for active tab items.
   final Color activeColor;
+
+  /// The color used for inactive tab items.
   final Color inactiveColor;
+
+  /// The color of notification badges on tab items.
   final Color notificationsBadgeColor;
+
+  /// The index of the initially active tab.
   final int firstActiveIndex;
+
+  /// The list of tabs to be displayed in the bottom navigation bar.
   final List<BottomCupertinoTab> children;
-  final Function(int, BottomCupertinoTabbarProviderModel, Map<int, GlobalKey<NavigatorState>>) onTabPressed;
+
+  /// Callback function invoked when a tab is pressed. Provides the index of the pressed tab,
+  /// the state model, and a map of navigator keys for nested navigation.
+  final Function(int, BottomCupertinoTabbarProviderModel,
+      Map<int, GlobalKey<NavigatorState>>) onTabPressed;
+
+  /// An optional floating action button to be displayed alongside the tab bar.
   final Widget? floatingActionButton;
+
+  /// The location of the floating action button within the scaffold.
   final FloatingActionButtonLocation? floatingActionButtonLocation;
+
+  /// Controls whether the bottom bar should resize when the on-screen keyboard appears.
   final bool? resizeToAvoidBottomInset;
+
+  /// The background color of the bottom navigation bar.
   final Color backgroundColor;
+
+  /// Flag to control whether labels are shown on the tab items.
   final bool showLabels;
 
+  /// Constructs a BottomCupertinoTabbar.
   const BottomCupertinoTabbar({
     super.key,
     required this.activeColor,
@@ -41,20 +66,25 @@ class BottomCupertinoTabbar extends StatefulWidget {
 }
 
 class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
-
+  /// A map to hold the keys for the nested navigators for each tab.
   Map<int, GlobalKey<NavigatorState>> _nestedNavigator = {};
-  final BottomCupertinoTabbarProviderModel _homeVM = BottomCupertinoTabbarProviderModel();
+
+  /// The model to manage the state and behavior of the BottomCupertinoTabbar.
+  final BottomCupertinoTabbarProviderModel _homeVM =
+      BottomCupertinoTabbarProviderModel();
 
   @override
   void initState() {
     super.initState();
+    // Filters tabs that are not empty and creates nested navigators for each.
     final tabs = widget.children.where((tab) => tab.tab.empty == false);
     _nestedNavigator = _createNestedNavigator(tabs.length);
   }
 
+  /// Creates and initializes a map of GlobalKey<NavigatorState> for managing nested navigation.
   Map<int, GlobalKey<NavigatorState>> _createNestedNavigator(int items) {
     Map<int, GlobalKey<NavigatorState>> localNestedNavigator = {};
-    for(int i = 0; i < items; i++) {
+    for (int i = 0; i < items; i++) {
       localNestedNavigator.addAll({
         i: GlobalKey<NavigatorState>(),
       });
@@ -62,22 +92,22 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
     return localNestedNavigator;
   }
 
+  /// Handles the back navigation within each tab.
+  /// Returns true if the navigator in the current tab is at its first route.
   Future<bool> _onPopInvoked(int currentTab) async {
-    final isFirstRouteInCurrentTab = !await _nestedNavigator[currentTab]!.currentState!.maybePop();
+    final isFirstRouteInCurrentTab =
+        !await _nestedNavigator[currentTab]!.currentState!.maybePop();
     return isFirstRouteInCurrentTab;
   }
 
-  List<Widget> _getChildren(
-    List<BottomCupertinoTab> pages,
-    Map<int, GlobalKey<NavigatorState>> nestedNavigator
-  ) {
+  /// Generates a list of ItemChild widgets for each tab, each wrapped in a Navigator.
+  List<Widget> _getChildren(List<BottomCupertinoTab> pages,
+      Map<int, GlobalKey<NavigatorState>> nestedNavigator) {
     List<Widget> results = [];
-    for(int i = 0; i < pages.length; i++) {
+    for (int i = 0; i < pages.length; i++) {
       var child = pages[i];
-      var indexedWidget = ItemChild(
-        navigatorKey: nestedNavigator[i],
-        child: child.page
-      );
+      var indexedWidget =
+          ItemChild(navigatorKey: nestedNavigator[i], child: child.page);
       results.add(indexedWidget);
     }
     return results;

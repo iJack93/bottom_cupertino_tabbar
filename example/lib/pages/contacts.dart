@@ -7,23 +7,23 @@ class ContactsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Contacts"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("Welcome to contacts page"),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (builder) => const ContactsDetailsPageOne()));
-              },
-              child: const Text("Open details")
-            )
-          ],
+        appBar: AppBar(
+          title: const Text("Contacts"),
         ),
-      )
-    );
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Welcome to contacts page"),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (builder) => const ContactsDetailsPageOne()));
+                },
+                child: const Text("Open details"),
+              )
+            ],
+          ),
+        ));
   }
 }

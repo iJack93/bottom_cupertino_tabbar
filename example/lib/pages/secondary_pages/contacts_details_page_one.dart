@@ -18,7 +18,7 @@ class ContactsDetailsPageOne extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Back to Contacts")
+              child: const Text("Back to Contacts"),
             )
           ],
         ),

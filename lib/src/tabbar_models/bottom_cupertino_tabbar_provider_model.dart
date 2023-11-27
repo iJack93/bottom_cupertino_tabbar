@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
 class BottomCupertinoTabbarProviderModel extends ChangeNotifier {
-
   /// Represents the current active tab.
   /// The default number given to _currentTab represents the first page opened at app start
   /// EXAMPLE: if _currentTab == 0 --> first page
@@ -16,5 +15,4 @@ class BottomCupertinoTabbarProviderModel extends ChangeNotifier {
     _currentTab = index;
     notifyListeners();
   }
-
 }

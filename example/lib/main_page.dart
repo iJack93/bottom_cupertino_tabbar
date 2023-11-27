@@ -19,8 +19,7 @@ class MainPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (builder) =>
-                    const SimpleTabBar(),
+                    builder: (builder) => const SimpleTabBar(),
                   ),
                 );
               },
@@ -30,8 +29,7 @@ class MainPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (builder) =>
-                    const TabBarWithCenteredButton(),
+                    builder: (builder) => const TabBarWithCenteredButton(),
                   ),
                 );
               },

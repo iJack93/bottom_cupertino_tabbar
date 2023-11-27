@@ -18,7 +18,7 @@ class HomeDetailsPageOne extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Back to Home")
+              child: const Text("Back to Home"),
             )
           ],
         ),

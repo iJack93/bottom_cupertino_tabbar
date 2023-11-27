@@ -17,13 +17,17 @@ class SettingsPage extends StatelessWidget {
             const Text("Welcome to notifications page"),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (builder) => const SettingsDetailsPageOne()));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (builder) => const SettingsDetailsPageOne(),
+                  ),
+                );
               },
-              child: const Text("Open details")
+              child: const Text("Open details"),
             )
           ],
         ),
-      )
+      ),
     );
   }
 }

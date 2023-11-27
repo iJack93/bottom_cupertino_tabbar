@@ -11,7 +11,6 @@ class SimpleTabBar extends StatefulWidget {
 }
 
 class _SimpleTabBarState extends State<SimpleTabBar> {
-
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(
@@ -26,7 +25,8 @@ class _SimpleTabBarState extends State<SimpleTabBar> {
           model.changePage(index);
         } else {
           if (nestedNavigator[index]?.currentContext != null) {
-            Navigator.of(nestedNavigator[index]!.currentContext!).popUntil((route) => route.isFirst);
+            Navigator.of(nestedNavigator[index]!.currentContext!)
+                .popUntil((route) => route.isFirst);
           }
         }
       },
