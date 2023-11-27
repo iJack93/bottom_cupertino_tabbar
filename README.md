@@ -5,15 +5,14 @@ The package provides extensive customization options, including the ability to a
 ---
 
 <p align="center">
-    <img src="example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 300px; margin-right: 30px" alt="appBar preview">
-    <img src="example/assets/screenshots/Screenshot_20231127_085903.png" style="width: 300px; margin-right: 30px" alt="appBar preview">
-    <img src="example/assets/screenshots/Screenshot_20231127_085924.png" style="width: 300px" alt="appBar preview">
+  <img src="example/assets/screenshots/recording.gif"
+    alt="An animated image of the iOS in-app purchase UI" width="300"/>
 </p>
 <p align="center">
-    <img src="example/assets/screenshots/Screenshot_20231127_085943.png" style="width: 300px; margin-right: 30px" alt="appBar preview">
-    <img src="example/assets/screenshots/Screenshot_20231127_085958.png" style="width: 300px; margin-right: 30px" alt="appBar preview">
-    <img src="example/assets/screenshots/Screenshot_20231127_090153.png" style="width: 300px" alt="appBar preview">
+    <img src="example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 200px; margin-right: 30px" alt="appBar preview">
+    <img src="example/assets/screenshots/Screenshot_20231127_085943.png" style="width: 200px;" alt="appBar preview">
 </p>
+
 <p align="center">
   <a href="https://pub.dev/packages/convex_bottom_bar"><img src="https://img.shields.io/pub/v/bottom_cupertino_tabbar" alt="pub.dev"></a>
   <a href="https://github.com/hacktons/convex_bottom_bar"><img src="https://img.shields.io/badge/platform-flutter-ff69b4.svg" alt="github"></a>
