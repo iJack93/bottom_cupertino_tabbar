@@ -5,17 +5,17 @@ The package provides extensive customization options, including the ability to a
 ---
 
 <p align="center">
-  <img src="[example/assets/screenshots/recording.gif](https://firebasestorage.googleapis.com/v0/b/github-resources-8f78f.appspot.com/o/public_resources%2Frecording.gif?alt=media&token=c0689388-ce53-4b07-a760-c48b5337ffa7)"
+  <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/recording.gif"
     alt="An animated image of the BottomCupertinoTabbar in action" width="300"/>
 </p>
 <p align="center">
-    <img src="example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 200px; margin-right: 30px" alt="appBar preview">
-    <img src="example/assets/screenshots/Screenshot_20231127_085943.png" style="width: 200px;" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 200px; margin-right: 30px" alt="homepage preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085943.png" style="width: 200px;" alt="homepage preview">
 </p>
 
 <p align="center">
-  <a href="https://pub.dev/packages/convex_bottom_bar"><img src="https://img.shields.io/pub/v/bottom_cupertino_tabbar" alt="pub.dev"></a>
-  <a href="https://github.com/hacktons/convex_bottom_bar"><img src="https://img.shields.io/badge/platform-flutter-ff69b4.svg" alt="github"></a>
+  <a href="https://pub.dev/packages/bottom_cupertino_tabbar"><img src="https://img.shields.io/pub/v/bottom_cupertino_tabbar" alt="pub.dev"></a>
+  <a href="https://github.com/hacktons/bottom_cupertino_tabbar"><img src="https://img.shields.io/badge/platform-flutter-ff69b4.svg" alt="github"></a>
 </p>
 
 ---
@@ -80,8 +80,8 @@ The provided example showcases a `SimpleTabBar` class using `BottomCupertinoTabb
 Each tab is linked to a corresponding page and icon, with maintained state and navigation stack, as seen in the following images.
 
 <p align="center">
-    <img src="example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 300px; margin-right: 30px" alt="appBar preview">
-    <img src="example/assets/screenshots/Screenshot_20231127_085903.png" style="width: 300px" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 300px; margin-right: 30px" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085903.png" style="width: 300px" alt="appBar preview">
 </p>
 
 ## Customization
@@ -181,8 +181,8 @@ Here is the code for the following example:
 
 
 <p align="center">
-    <img src="example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 300px; margin-right: 30px" alt="appBar preview">
-    <img src="example/assets/screenshots/Screenshot_20231127_085903.png" style="width: 300px" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085844.png" style="width: 300px; margin-right: 30px" alt="appBar preview">
+    <img src="https://github.com/iJack93/bottom_cupertino_tabbar/blob/main/example/assets/screenshots/Screenshot_20231127_085903.png" style="width: 300px" alt="appBar preview">
 </p>
 
 ```dart
