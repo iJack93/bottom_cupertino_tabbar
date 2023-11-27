@@ -18,7 +18,7 @@ class SettingsDetailsPageOne extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Back to Settings")
+              child: const Text("Back to Settings"),
             )
           ],
         ),

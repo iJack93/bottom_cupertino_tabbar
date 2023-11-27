@@ -7,11 +7,11 @@ class TabBarWithCenteredButton extends StatefulWidget {
   const TabBarWithCenteredButton({super.key});
 
   @override
-  State<TabBarWithCenteredButton> createState() => _TabBarWithCenteredButtonState();
+  State<TabBarWithCenteredButton> createState() =>
+      _TabBarWithCenteredButtonState();
 }
 
 class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
-
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(
@@ -23,20 +23,29 @@ class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
       showLabels: true,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (builder) => const BonusPage()));
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (builder) => const BonusPage(),
+            ),
+          );
         },
         backgroundColor: Colors.blue,
-        child: const Icon(Icons.add, color: Colors.white, size: 28,),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 28,
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       onTabPressed: (index, model, nestedNavigator) {
-        if(index != 2) {
+        if (index != 2) {
           if (index != model.currentTab) {
             model.changePage(index);
           } else {
             //force remain on index 0
             if (nestedNavigator[index]?.currentContext != null) {
-              Navigator.of(nestedNavigator[index]!.currentContext!).popUntil((route) => route.isFirst);
+              Navigator.of(nestedNavigator[index]!.currentContext!)
+                  .popUntil((route) => route.isFirst);
             }
           }
         }

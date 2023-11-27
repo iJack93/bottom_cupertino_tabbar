@@ -17,13 +17,17 @@ class HomePage extends StatelessWidget {
             const Text("Welcome to home page"),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (builder) => const HomeDetailsPageOne()));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (builder) => const HomeDetailsPageOne(),
+                  ),
+                );
               },
-              child: const Text("Open details")
+              child: const Text("Open details"),
             )
           ],
         ),
-      )
+      ),
     );
   }
 }

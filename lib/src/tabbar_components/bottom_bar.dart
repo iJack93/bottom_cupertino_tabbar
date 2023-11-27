@@ -4,19 +4,43 @@ import 'package:flutter/material.dart';
 
 import '../tabbar_models/bottom_cupertino_tab_item.dart';
 import '../tabbar_models/bottom_cupertino_tabbar_provider_model.dart';
-import '../tabbar_components/custom_cupertino_tabbar.dart' as custom_cupertino_tabbar;
+import '../tabbar_components/custom_cupertino_tabbar.dart'
+    as custom_cupertino_tabbar;
 
+/// The BottomBar class is a StatefulWidget that builds a bottom navigation
+/// bar using a collection of BottomCupertinoTab items. It is designed to integrate
+/// with a navigation model and supports custom actions on tab selection.
 class BottomBar extends StatefulWidget {
+  /// A map of NavigatorState keys used for nested navigation in each tab.
   final Map<int, GlobalKey<NavigatorState>> nestedNavigator;
+
+  /// The model that holds the current state of the BottomCupertinoTabbar.
   final BottomCupertinoTabbarProviderModel model;
+
+  /// Color for active tab items.
   final Color activeColor;
+
+  /// Color for inactive tab items.
   final Color inactiveColor;
+
+  /// Color for notification badges on the tab items.
   final Color notificationsBadgeColor;
+
+  /// The index of the initially active tab.
   final int firstActiveIndex;
+
+  /// A list of tabs to display in the BottomCupertinoTabbar.
   final List<BottomCupertinoTab> tabs;
-  final Function(int, BottomCupertinoTabbarProviderModel, Map<int, GlobalKey<NavigatorState>>) onTabPressed;
+
+  /// Callback function invoked when a tab is pressed. Provides tab index,
+  /// model state, and a map of nested navigators.
+  final Function(int, BottomCupertinoTabbarProviderModel,
+      Map<int, GlobalKey<NavigatorState>>) onTabPressed;
+
+  /// Flag to show or hide labels under tab icons.
   final bool showLabels;
 
+  /// Constructor for BottomBar.
   const BottomBar({
     super.key,
     required this.nestedNavigator,
@@ -35,14 +59,19 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
+  /// Default height for the tab bar.
   final double _kTabBarHeight = 50.0;
+
+  /// Stores the BottomNavigationBar items converted from BottomCupertinoTab items.
   List<BottomNavigationBarItem> _tabs = [];
 
+  /// Converts a list of BottomCupertinoTab items to BottomNavigationBarItems.
+  /// This process includes setting up icons, labels, and notifications for each tab.
   List<BottomNavigationBarItem> _getTabs(List<BottomCupertinoTab> tabs) {
     List<BottomNavigationBarItem> results = [];
-    for(int i = 0; i < tabs.length; i++) {
+    for (int i = 0; i < tabs.length; i++) {
       final bottomCupertinoTab = tabs[i];
-      if(!bottomCupertinoTab.tab.empty) {
+      if (!bottomCupertinoTab.tab.empty) {
         bool isActive = widget.model.currentTab == i;
         final tab = TabItem(
           activeIcon: bottomCupertinoTab.tab.activeIcon!,
@@ -65,15 +94,19 @@ class _BottomBarState extends State<BottomBar> {
     return results;
   }
 
+  /// Checks if the on-screen keyboard is open in the current context.
+  /// Returns true if the keyboard is open, otherwise false.
   bool _isKeyboardOpen(BuildContext context) {
     return MediaQuery.viewInsetsOf(context).bottom > 0;
   }
 
+  /// Calculates the appropriate height of the toolbar.
+  /// Adjusts height based on platform and keyboard visibility.
   double _getToolbarHeight(BuildContext context) {
     double result = 0;
     double height = Platform.isAndroid ? _kTabBarHeight + 8 : _kTabBarHeight;
     final bool isKeyboardOpened = _isKeyboardOpen(context);
-    if(isKeyboardOpened) {
+    if (isKeyboardOpened) {
       height = 0;
     }
     result = height;

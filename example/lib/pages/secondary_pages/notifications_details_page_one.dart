@@ -18,7 +18,7 @@ class NotificationsDetailsPageOne extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text("Back to Notifications")
+              child: const Text("Back to Notifications"),
             )
           ],
         ),

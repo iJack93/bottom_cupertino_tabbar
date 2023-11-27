@@ -16,14 +16,18 @@ class NotificationsPage extends StatelessWidget {
           children: [
             const Text("Welcome to notifications page"),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (builder) => const NotificationsDetailsPageOne()));
-                },
-                child: const Text("Open details")
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (builder) => const NotificationsDetailsPageOne(),
+                  ),
+                );
+              },
+              child: const Text("Open details"),
             )
           ],
         ),
-      )
+      ),
     );
   }
 }
