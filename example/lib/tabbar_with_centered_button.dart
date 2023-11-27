@@ -1,10 +1,7 @@
-import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/bonus.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/contacts.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/home.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/notifications.dart';
-import 'package:bottom_cupertino_tabbar_example/pages/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
+
+import '../pages/pages.dart';
 
 class TabBarWithCenteredButton extends StatefulWidget {
   const TabBarWithCenteredButton({super.key});
