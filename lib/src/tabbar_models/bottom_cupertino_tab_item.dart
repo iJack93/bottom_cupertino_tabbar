@@ -13,7 +13,7 @@ class BottomCupertinoTab {
   ///
   /// [tab]: Configuration for the tab's design and behavior.
   /// [page]: The widget to display when this tab is selected.
-  BottomCupertinoTab({required this.tab, required this.page});
+  const BottomCupertinoTab({required this.tab, required this.page});
 }
 
 /// BottomCupertinoTabItem holds the configuration for a tab in the BottomCupertinoTabbar.

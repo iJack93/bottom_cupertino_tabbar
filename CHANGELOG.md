@@ -1,7 +1,11 @@
+## 1.0.5
+
+* Made const `BottomCupertinoTab` class.
+
 ## 1.0.4
 
 * Updated images on `README.md`.
-* 
+
 ## 1.0.3
 
 * Updated `README.md`.

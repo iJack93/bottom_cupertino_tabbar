@@ -119,7 +119,7 @@ class BottomCupertinoTab {
   final BottomCupertinoTabItem tab;
   final Widget page;
 
-  BottomCupertinoTab({
+  const BottomCupertinoTab({
     required this.tab,
     required this.page
   });
@@ -164,7 +164,7 @@ Parameters:
 
 Example of a `BottomCupertinoTab`
 ```dart
-BottomCupertinoTab(
+const BottomCupertinoTab(
   tab: BottomCupertinoTabItem(
     activeIcon: "path/to/active_icon",
     inactiveIcon: "path/to/inactive_icon",
@@ -219,39 +219,39 @@ class _SimpleTabBarState extends State<SimpleTabBar> {
         }
       },
       children: [
-        BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
+        const BottomCupertinoTab(
+          tab: BottomCupertinoTabItem(
             activeIcon: "assets/bottom/home.svg",
             inactiveIcon: "assets/bottom/home.svg",
             label: "Home",
           ),
-          page: const HomePage(),
+          page: HomePage(),
         ),
-        BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
+        const BottomCupertinoTab(
+          tab: BottomCupertinoTabItem(
             activeIcon: "assets/bottom/bell.svg",
             inactiveIcon: "assets/bottom/bell.svg",
             label: "Notifications",
           ),
-          page: const NotificationsPage(),
+          page: NotificationsPage(),
         ),
-        BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
+        const BottomCupertinoTab(
+          tab: BottomCupertinoTabItem(
             activeIcon: "assets/bottom/contacts.svg",
             inactiveIcon: "assets/bottom/contacts.svg",
             notificationsCounter: 4,
             showNotifications: true,
             label: "Contacts",
           ),
-          page: const ContactsPage(),
+          page: ContactsPage(),
         ),
-        BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
+        const BottomCupertinoTab(
+          tab: BottomCupertinoTabItem(
             activeIcon: "assets/bottom/settings.svg",
             inactiveIcon: "assets/bottom/settings.svg",
             label: "Settings",
           ),
-          page: const SettingsPage(),
+          page: SettingsPage(),
         ),
       ],
     );
