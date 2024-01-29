@@ -84,7 +84,7 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
   /// Creates and initializes a map of GlobalKey<NavigatorState> for managing nested navigation.
   Map<int, GlobalKey<NavigatorState>> _createNestedNavigator(int items) {
     Map<int, GlobalKey<NavigatorState>> localNestedNavigator = {};
-    for (int i = 0; i < items; i++) {
+    for (int i = 0; i <= items; i++) {
       localNestedNavigator.addAll({
         i: GlobalKey<NavigatorState>(),
       });

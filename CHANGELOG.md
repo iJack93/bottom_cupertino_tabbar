@@ -1,3 +1,7 @@
+## 1.0.6
+
+* Fixed nestedNavigator generation.
+
 ## 1.0.5
 
 * Made const `BottomCupertinoTab` class.
