@@ -30,6 +30,9 @@ class BottomCupertinoTabbar extends StatefulWidget {
   final Function(int, BottomCupertinoTabbarProviderModel,
       Map<int, GlobalKey<NavigatorState>>) onTabPressed;
 
+  /// A function that returns a model to manage the state and behavior of the BottomCupertinoTabbar.
+  final Function(BottomCupertinoTabbarProviderModel)? tabbarModel;
+
   /// An optional floating action button to be displayed alongside the tab bar.
   final Widget? floatingActionButton;
 
@@ -59,6 +62,7 @@ class BottomCupertinoTabbar extends StatefulWidget {
     this.resizeToAvoidBottomInset,
     this.backgroundColor = Colors.white,
     this.showLabels = false,
+    this.tabbarModel,
   });
 
   @override
@@ -119,6 +123,9 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
       create: (context) => _homeVM,
       child: Consumer<BottomCupertinoTabbarProviderModel>(
         builder: (context, model, child) {
+          if (widget.tabbarModel != null) {
+            widget.tabbarModel!(model);
+          }
           var currentTab = model.currentTab;
           return NavigatorPopHandler(
             onPop: () async => await _onPopInvoked(currentTab),
