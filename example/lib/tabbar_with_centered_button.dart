@@ -1,3 +1,4 @@
+import 'package:bottom_cupertino_tabbar_example/example_manager/example_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
 
@@ -12,6 +13,7 @@ class TabBarWithCenteredButton extends StatefulWidget {
 }
 
 class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
+
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(
@@ -21,6 +23,9 @@ class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
       firstActiveIndex: 0,
       resizeToAvoidBottomInset: false,
       showLabels: true,
+      tabbarModel: (model) {
+        ExampleManager().tabbarProviderModel = model;
+      },
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context).push(

@@ -1,3 +1,7 @@
+## 1.0.7
+
+* Exported `BottomCupertinoProviderModel` to let externals change tab more easily.
+
 ## 1.0.6
 
 * Fixed nestedNavigator generation.

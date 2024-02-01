@@ -1,6 +1,8 @@
 import 'package:bottom_cupertino_tabbar_example/pages/secondary_pages/settings_details_page_one.dart';
 import 'package:flutter/material.dart';
 
+import '../example_manager/example_manager.dart';
+
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
@@ -24,6 +26,15 @@ class SettingsPage extends StatelessWidget {
                 );
               },
               child: const Text("Open details"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                final manager = ExampleManager().tabbarProviderModel;
+                if(manager != null) {
+                  manager.changePage(0);
+                }
+              },
+              child: const Text("Go Back Home"),
             )
           ],
         ),
