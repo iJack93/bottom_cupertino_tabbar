@@ -1,3 +1,7 @@
+## 1.0.8
+
+* Updated dependencies and enhanced performances on inner elements.
+
 ## 1.0.7
 
 * Exported `BottomCupertinoProviderModel` to let externals change tab more easily.

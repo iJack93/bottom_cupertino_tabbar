@@ -40,6 +40,8 @@ class BottomBar extends StatefulWidget {
   /// Flag to show or hide labels under tab icons.
   final bool showLabels;
 
+  final Color? backgroundColor;
+
   /// Constructor for BottomBar.
   const BottomBar({
     super.key,
@@ -52,6 +54,7 @@ class BottomBar extends StatefulWidget {
     required this.tabs,
     required this.onTabPressed,
     this.showLabels = false,
+    this.backgroundColor,
   });
 
   @override
@@ -117,7 +120,7 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     _tabs = _getTabs(widget.tabs);
     return custom_cupertino_tabbar.CupertinoTabBar(
-      backgroundColor: Colors.white,
+      backgroundColor: widget.backgroundColor,
       duration: const Duration(milliseconds: 125),
       border: null,
       iconSize: 30,
