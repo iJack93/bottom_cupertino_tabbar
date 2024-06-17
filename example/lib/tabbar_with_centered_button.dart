@@ -13,7 +13,6 @@ class TabBarWithCenteredButton extends StatefulWidget {
 }
 
 class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
-
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(

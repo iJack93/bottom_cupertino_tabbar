@@ -11,5 +11,4 @@ class ExampleManager {
   }
 
   BottomCupertinoTabbarProviderModel? tabbarProviderModel;
-
 }

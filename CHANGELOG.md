@@ -1,3 +1,7 @@
+## 1.0.9
+
+* Fixed dart format linting.
+
 ## 1.0.8
 
 * Updated dependencies and enhanced performances on inner elements.

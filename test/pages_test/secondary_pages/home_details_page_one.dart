@@ -15,11 +15,10 @@ class HomeDetailsPageOne extends StatelessWidget {
           children: [
             const Text("Welcome to home page details"),
             ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text("Back to Home")
-            )
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text("Back to Home"))
           ],
         ),
       ),

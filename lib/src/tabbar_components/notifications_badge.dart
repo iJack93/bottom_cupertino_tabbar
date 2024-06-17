@@ -26,16 +26,15 @@ class NotificationsBadge extends StatelessWidget {
         top: showLabels && label != null ? 4 : 8,
         right: _getRightBadgeNotificationPosition(notificationsCounter),
         child: Container(
-          width: _getNotificationBadgeWidth(notificationsCounter),
-          height: 18,
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            color: notificationsBadgeColor,
-          ),
-          child: NotificationsBadgeText(
-            notificationsCounter: notificationsCounter,
-          )
-        ),
+            width: _getNotificationBadgeWidth(notificationsCounter),
+            height: 18,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              color: notificationsBadgeColor,
+            ),
+            child: NotificationsBadgeText(
+              notificationsCounter: notificationsCounter,
+            )),
       );
     } else {
       return Container();
@@ -61,5 +60,4 @@ class NotificationsBadge extends StatelessWidget {
     }
     return result;
   }
-
 }

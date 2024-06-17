@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class IconComponent extends StatelessWidget {
-
   final bool active;
   final String activeIcon;
   final String inactiveIcon;

@@ -15,11 +15,10 @@ class NotificationsDetailsPageOne extends StatelessWidget {
           children: [
             const Text("Welcome to notifications page details"),
             ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text("Back to Notifications")
-            )
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text("Back to Notifications"))
           ],
         ),
       ),

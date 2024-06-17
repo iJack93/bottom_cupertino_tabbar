@@ -31,5 +31,4 @@ class NotificationsBadgeText extends StatelessWidget {
       return number.toString();
     }
   }
-
 }

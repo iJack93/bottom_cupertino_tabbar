@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'icon_component.dart';
 
 class LabelIconComponent extends StatelessWidget {
-
   final bool active;
   final String activeIcon;
   final String inactiveIcon;
@@ -40,11 +39,10 @@ class LabelIconComponent extends StatelessWidget {
           ),
           // The label text positioned below the icon.
           LabelComponent(
-            label: label,
-            active: active,
-            activeColor: activeColor,
-            inactiveColor: inactiveColor
-          ),
+              label: label,
+              active: active,
+              activeColor: activeColor,
+              inactiveColor: inactiveColor),
         ],
       ),
     );

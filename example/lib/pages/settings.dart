@@ -30,7 +30,7 @@ class SettingsPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 final manager = ExampleManager().tabbarProviderModel;
-                if(manager != null) {
+                if (manager != null) {
                   manager.changePage(0);
                 }
               },
