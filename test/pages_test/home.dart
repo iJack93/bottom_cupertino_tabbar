@@ -8,23 +8,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text("Welcome to home page"),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (builder) => const HomeDetailsPageOne()));
-              },
-              child: const Text("Open details")
-            )
-          ],
+        appBar: AppBar(
+          title: const Text("Home"),
         ),
-      )
-    );
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("Welcome to home page"),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (builder) => const HomeDetailsPageOne()));
+                  },
+                  child: const Text("Open details"))
+            ],
+          ),
+        ));
   }
 }

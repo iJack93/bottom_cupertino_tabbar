@@ -15,11 +15,10 @@ class SettingsDetailsPageOne extends StatelessWidget {
           children: [
             const Text("Welcome to settings page details"),
             ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text("Back to Settings")
-            )
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text("Back to Settings"))
           ],
         ),
       ),

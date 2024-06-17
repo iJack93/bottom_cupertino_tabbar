@@ -15,11 +15,10 @@ class ContactsDetailsPageOne extends StatelessWidget {
           children: [
             const Text("Welcome to contacts page details"),
             ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text("Back to Contacts")
-            )
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text("Back to Contacts"))
           ],
         ),
       ),

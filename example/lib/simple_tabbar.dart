@@ -11,7 +11,6 @@ class SimpleTabBar extends StatefulWidget {
 }
 
 class _SimpleTabBarState extends State<SimpleTabBar> {
-
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(

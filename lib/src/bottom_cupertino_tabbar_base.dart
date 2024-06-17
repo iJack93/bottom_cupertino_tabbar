@@ -107,19 +107,17 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
   }
 
   /// Generates a list of ItemChild widgets for each tab, each wrapped in a Navigator.
-  List<Widget> _getChildren({
-    required List<BottomCupertinoTab> pages,
-    required Map<int, GlobalKey<NavigatorState>> nestedNavigator
-  }) {
+  List<Widget> _getChildren(
+      {required List<BottomCupertinoTab> pages,
+      required Map<int, GlobalKey<NavigatorState>> nestedNavigator}) {
     if (_cachedChildren == null) {
       _cachedChildren = [];
       for (int i = 0; i < pages.length; i++) {
         var child = pages[i];
         var indexedWidget = ItemChild(
-          key: ValueKey(i),
-          navigatorKey: nestedNavigator[i],
-          child: child.page
-        );
+            key: ValueKey(i),
+            navigatorKey: nestedNavigator[i],
+            child: child.page);
         _cachedChildren!.add(indexedWidget);
       }
     }
@@ -157,7 +155,8 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
               ),
               body: IndexedStack(
                 index: currentTab,
-                children: _getChildren(pages: widget.children, nestedNavigator: _nestedNavigator),
+                children: _getChildren(
+                    pages: widget.children, nestedNavigator: _nestedNavigator),
               ),
             ),
           );

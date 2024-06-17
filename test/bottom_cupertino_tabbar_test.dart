@@ -28,7 +28,8 @@ class BottomCupertinoTabbarTest extends StatelessWidget {
             } else {
               //force remain on index 0
               if (nestedNavigator[index]?.currentContext != null) {
-                Navigator.of(nestedNavigator[index]!.currentContext!).popUntil((route) => route.isFirst);
+                Navigator.of(nestedNavigator[index]!.currentContext!)
+                    .popUntil((route) => route.isFirst);
               }
             }
           },
@@ -73,7 +74,6 @@ class BottomCupertinoTabbarTest extends StatelessWidget {
     );
   }
 }
-
 
 void main() async {
   TestWidgetsFlutterBinding.ensureInitialized();

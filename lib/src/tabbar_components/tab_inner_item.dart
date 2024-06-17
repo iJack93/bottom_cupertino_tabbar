@@ -46,8 +46,7 @@ class TabInnerItem extends StatelessWidget {
             inactiveIcon: inactiveIcon,
             activeColor: activeColor,
             inactiveColor: inactiveColor,
-          )
-      );
+          ));
     }
     return result;
   }
