@@ -11,6 +11,7 @@ class SimpleTabBar extends StatefulWidget {
 }
 
 class _SimpleTabBarState extends State<SimpleTabBar> {
+
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(
@@ -30,40 +31,40 @@ class _SimpleTabBarState extends State<SimpleTabBar> {
           }
         }
       },
-      children: [
+      children: const [
         BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
+          tab: BottomCupertinoTabItem(
             activeIcon: "assets/bottom/home.svg",
             inactiveIcon: "assets/bottom/home.svg",
             label: "Home",
           ),
-          page: const HomePage(),
+          page: HomePage(),
         ),
         BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
+          tab: BottomCupertinoTabItem(
             activeIcon: "assets/bottom/bell.svg",
             inactiveIcon: "assets/bottom/bell.svg",
             label: "Notifications",
           ),
-          page: const NotificationsPage(),
+          page: NotificationsPage(),
         ),
         BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
+          tab: BottomCupertinoTabItem(
             activeIcon: "assets/bottom/contacts.svg",
             inactiveIcon: "assets/bottom/contacts.svg",
             notificationsCounter: 4,
             showNotifications: true,
             label: "Contacts",
           ),
-          page: const ContactsPage(),
+          page: ContactsPage(),
         ),
         BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
+          tab: BottomCupertinoTabItem(
             activeIcon: "assets/bottom/settings.svg",
             inactiveIcon: "assets/bottom/settings.svg",
             label: "Settings",
           ),
-          page: const SettingsPage(),
+          page: SettingsPage(),
         ),
       ],
     );

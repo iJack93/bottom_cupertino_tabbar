@@ -76,7 +76,7 @@ class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
           tab: const BottomCupertinoTabItem(
             empty: true,
           ),
-          page: Container(),
+          page: const SizedBox.shrink(),
         ),
         const BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
