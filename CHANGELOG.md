@@ -1,3 +1,7 @@
+## 1.0.11
+
+* Fixed missing kIsWeb check.
+* 
 ## 1.0.10
 
 * Restored support for web.

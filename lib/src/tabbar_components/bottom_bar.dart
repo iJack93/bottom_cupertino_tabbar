@@ -107,7 +107,7 @@ class _BottomBarState extends State<BottomBar> {
   /// Adjusts height based on platform and keyboard visibility.
   double _getToolbarHeight(BuildContext context) {
     double result = 0;
-    double height = defaultTargetPlatform == TargetPlatform.android
+    double height = !kIsWeb && defaultTargetPlatform == TargetPlatform.android
         ? _kTabBarHeight + 8
         : _kTabBarHeight;
     final bool isKeyboardOpened = _isKeyboardOpen(context);
