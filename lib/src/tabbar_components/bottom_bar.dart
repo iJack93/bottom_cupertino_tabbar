@@ -1,6 +1,6 @@
-import 'dart:io';
 import 'package:bottom_cupertino_tabbar/src/tabbar_components/tab_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
 import '../tabbar_models/bottom_cupertino_tab_item.dart';
 import '../tabbar_models/bottom_cupertino_tabbar_provider_model.dart';
@@ -107,7 +107,9 @@ class _BottomBarState extends State<BottomBar> {
   /// Adjusts height based on platform and keyboard visibility.
   double _getToolbarHeight(BuildContext context) {
     double result = 0;
-    double height = Platform.isAndroid ? _kTabBarHeight + 8 : _kTabBarHeight;
+    double height = defaultTargetPlatform == TargetPlatform.android
+        ? _kTabBarHeight + 8
+        : _kTabBarHeight;
     final bool isKeyboardOpened = _isKeyboardOpen(context);
     if (isKeyboardOpened) {
       height = 0;

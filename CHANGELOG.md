@@ -1,3 +1,7 @@
+## 1.0.10
+
+* Restored support for web.
+
 ## 1.0.9
 
 * Fixed dart format linting.
