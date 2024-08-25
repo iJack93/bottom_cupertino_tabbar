@@ -122,7 +122,7 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     _tabs = _getTabs(widget.tabs);
     final bool isKeyboardOpened = _isKeyboardOpen(context);
-    if(isKeyboardOpened) {
+    if (isKeyboardOpened) {
       return const SizedBox.shrink();
     }
     return custom_cupertino_tabbar.CupertinoTabBar(
