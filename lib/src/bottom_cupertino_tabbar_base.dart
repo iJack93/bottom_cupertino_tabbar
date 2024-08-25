@@ -48,6 +48,22 @@ class BottomCupertinoTabbar extends StatefulWidget {
   /// Flag to control whether labels are shown on the tab items.
   final bool showLabels;
 
+  /// Optional AppBar to be displayed at the top of the BottomCupertinoTabbar element.
+  final PreferredSizeWidget? appBar;
+
+  // other properties of Scaffold
+  final bool extendBody;
+  final bool extendBodyBehindAppBar;
+  final Widget? drawer;
+  final Widget? endDrawer;
+  final DrawerCallback? onDrawerChanged;
+  final DrawerCallback? onEndDrawerChanged;
+  final Color? drawerScrimColor;
+  final double? drawerEdgeDragWidth;
+  final bool drawerEnableOpenDragGesture;
+  final bool endDrawerEnableOpenDragGesture;
+  final String? restorationId;
+
   /// Constructs a BottomCupertinoTabbar.
   const BottomCupertinoTabbar({
     super.key,
@@ -63,6 +79,18 @@ class BottomCupertinoTabbar extends StatefulWidget {
     this.backgroundColor = Colors.white,
     this.showLabels = false,
     this.tabbarModel,
+    this.appBar,
+    this.extendBody = false,
+    this.extendBodyBehindAppBar = false,
+    this.drawer,
+    this.endDrawer,
+    this.onDrawerChanged,
+    this.onEndDrawerChanged,
+    this.drawerScrimColor,
+    this.drawerEdgeDragWidth,
+    this.drawerEnableOpenDragGesture = true,
+    this.endDrawerEnableOpenDragGesture = true,
+    this.restorationId,
   });
 
   @override
@@ -141,6 +169,19 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
               resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
               floatingActionButton: widget.floatingActionButton,
               floatingActionButtonLocation: widget.floatingActionButtonLocation,
+              appBar: widget.appBar,
+              extendBody: widget.extendBody,
+              extendBodyBehindAppBar: widget.extendBodyBehindAppBar,
+              drawer: widget.drawer,
+              endDrawer: widget.endDrawer,
+              onDrawerChanged: widget.onDrawerChanged,
+              onEndDrawerChanged: widget.onEndDrawerChanged,
+              drawerScrimColor: widget.drawerScrimColor,
+              drawerEdgeDragWidth: widget.drawerEdgeDragWidth,
+              drawerEnableOpenDragGesture: widget.drawerEnableOpenDragGesture,
+              endDrawerEnableOpenDragGesture:
+                  widget.endDrawerEnableOpenDragGesture,
+              restorationId: widget.restorationId,
               bottomNavigationBar: BottomBar(
                 model: model,
                 nestedNavigator: _nestedNavigator,

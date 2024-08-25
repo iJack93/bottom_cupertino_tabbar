@@ -1,7 +1,11 @@
+## 1.0.13
+
+* Exposed some Scaffold properties to allow more customizations options. 
+
 ## 1.0.12
 
-* improve tabbar performance on keyboard show and hide events
-* bump version to 1.0.12
+* Improve tabbar performance on keyboard show and hide events
+* Bump version to 1.0.12
 
 ## 1.0.11
 
