@@ -1,7 +1,12 @@
+## 1.0.12
+
+* improve tabbar performance on keyboard show and hide events
+* bump version to 1.0.12
+
 ## 1.0.11
 
 * Fixed missing kIsWeb check.
-* 
+
 ## 1.0.10
 
 * Restored support for web.
