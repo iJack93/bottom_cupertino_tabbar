@@ -1,6 +1,6 @@
 name: bottom_cupertino_tabbar
 description: "BottomCupertinoTabbar is a customizable, Cupertino-style Flutter widget for bottom navigation with support for individual navigation stacks per tab."
-version: 1.0.12
+version: 1.0.13
 homepage: https://github.com/iJack93/bottom_cupertino_tabbar
 
 environment:
