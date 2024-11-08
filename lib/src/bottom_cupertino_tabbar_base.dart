@@ -11,10 +11,10 @@ import 'package:provider/provider.dart';
 /// It supports custom tab items, nested navigation, and optional floating action buttons.
 class BottomCupertinoTabbar extends StatefulWidget {
   /// The color used for active tab items.
-  final Color activeColor;
+  final Color? activeColor;
 
   /// The color used for inactive tab items.
-  final Color inactiveColor;
+  final Color? inactiveColor;
 
   /// The color of notification badges on tab items.
   final Color notificationsBadgeColor;
@@ -31,7 +31,8 @@ class BottomCupertinoTabbar extends StatefulWidget {
       Map<int, GlobalKey<NavigatorState>>) onTabPressed;
 
   /// A function that returns a model to manage the state and behavior of the BottomCupertinoTabbar.
-  final Function(BottomCupertinoTabbarProviderModel)? tabbarModel;
+  final Function(BottomCupertinoTabbarProviderModel,
+      Map<int, GlobalKey<NavigatorState>>)? tabbarModel;
 
   /// An optional floating action button to be displayed alongside the tab bar.
   final Widget? floatingActionButton;
@@ -64,11 +65,14 @@ class BottomCupertinoTabbar extends StatefulWidget {
   final bool endDrawerEnableOpenDragGesture;
   final String? restorationId;
 
+  /// Flag to control whether to override the color of the icons.
+  final bool overrideIconsColor;
+
   /// Constructs a BottomCupertinoTabbar.
   const BottomCupertinoTabbar({
     super.key,
-    required this.activeColor,
-    required this.inactiveColor,
+    this.activeColor,
+    this.inactiveColor,
     required this.notificationsBadgeColor,
     required this.firstActiveIndex,
     required this.children,
@@ -91,6 +95,7 @@ class BottomCupertinoTabbar extends StatefulWidget {
     this.drawerEnableOpenDragGesture = true,
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
+    this.overrideIconsColor = false,
   });
 
   @override
@@ -143,9 +148,10 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
       for (int i = 0; i < pages.length; i++) {
         var child = pages[i];
         var indexedWidget = ItemChild(
-            key: ValueKey(i),
-            navigatorKey: nestedNavigator[i],
-            child: child.page);
+          key: ValueKey(i),
+          navigatorKey: nestedNavigator[i],
+          child: child.page,
+        );
         _cachedChildren!.add(indexedWidget);
       }
     }
@@ -159,7 +165,7 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
       child: Consumer<BottomCupertinoTabbarProviderModel>(
         builder: (context, model, child) {
           if (widget.tabbarModel != null) {
-            widget.tabbarModel!(model);
+            widget.tabbarModel!(model, _nestedNavigator);
           }
           var currentTab = model.currentTab;
           return NavigatorPopHandler(
@@ -193,11 +199,14 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
                 onTabPressed: widget.onTabPressed,
                 showLabels: widget.showLabels,
                 backgroundColor: widget.backgroundColor,
+                overrideIconsColor: widget.overrideIconsColor,
               ),
               body: IndexedStack(
                 index: currentTab,
                 children: _getChildren(
-                    pages: widget.children, nestedNavigator: _nestedNavigator),
+                  pages: widget.children,
+                  nestedNavigator: _nestedNavigator,
+                ),
               ),
             ),
           );

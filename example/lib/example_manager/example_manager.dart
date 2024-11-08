@@ -1,4 +1,5 @@
 import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
+import 'package:flutter/material.dart';
 
 class ExampleManager {
   //singleton variables
@@ -11,4 +12,5 @@ class ExampleManager {
   }
 
   BottomCupertinoTabbarProviderModel? tabbarProviderModel;
+  Map<int, GlobalKey<NavigatorState>>? nestedNavigator;
 }

@@ -18,11 +18,14 @@ class BottomCupertinoTab {
 
 /// BottomCupertinoTabItem holds the configuration for a tab in the BottomCupertinoTabbar.
 class BottomCupertinoTabItem {
-  /// The path or identifier for the icon when the tab is active.
-  final String? activeIcon;
+  /// The single icon to display.
+  final Widget? icon;
 
-  /// The path or identifier for the icon when the tab is inactive.
-  final String? inactiveIcon;
+  /// The icon when the tab is active.
+  final Widget? activeIcon;
+
+  /// The icon when the tab is inactive.
+  final Widget? inactiveIcon;
 
   /// The text label for the tab.
   final String? label;
@@ -36,20 +39,21 @@ class BottomCupertinoTabItem {
   /// Indicates if the tab is to be considered as an empty placeholder.
   final bool empty;
 
-  /// Constructs a BottomCupertinoTabItem with various customization options.
-  ///
-  /// [activeIcon]: Path for the active state icon.
-  /// [inactiveIcon]: Path for the inactive state icon.
-  /// [label]: Text label for the tab.
-  /// [notificationsCounter]: Counter for notifications, displayed as a badge.
-  /// [showNotifications]: Whether to show the notifications badge.
-  /// [empty]: Whether the tab is an empty placeholder, useful for custom layouts.
+  /// The text style to use for the label when the tab is active.
+  final TextStyle? activeLabelTextStyle;
+
+  /// The text style to use for the label when the tab is inactive.
+  final TextStyle? inactiveLabelTextStyle;
+
   const BottomCupertinoTabItem({
+    this.icon,
     this.activeIcon,
     this.inactiveIcon,
     this.label,
     this.notificationsCounter = 0,
     this.showNotifications = false,
     this.empty = false,
+    this.activeLabelTextStyle,
+    this.inactiveLabelTextStyle,
   });
 }

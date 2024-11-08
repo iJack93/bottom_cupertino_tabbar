@@ -1,6 +1,7 @@
 import 'package:bottom_cupertino_tabbar_example/example_manager/example_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../pages/pages.dart';
 
@@ -16,14 +17,13 @@ class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(
-      activeColor: Colors.blue,
-      inactiveColor: Colors.grey[300]!,
       notificationsBadgeColor: Colors.red,
       firstActiveIndex: 0,
       resizeToAvoidBottomInset: false,
       showLabels: true,
-      tabbarModel: (model) {
+      tabbarModel: (model, nestedNavigator) {
         ExampleManager().tabbarProviderModel = model;
+        ExampleManager().nestedNavigator = nestedNavigator;
       },
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -55,43 +55,107 @@ class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
         }
       },
       children: [
-        const BottomCupertinoTab(
+        BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: "assets/bottom/home.svg",
-            inactiveIcon: "assets/bottom/home.svg",
+            activeIcon: SvgPicture.asset(
+              "assets/bottom/home.svg",
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.blue,
+                BlendMode.srcIn,
+              ),
+            ),
+            inactiveIcon: SvgPicture.asset(
+              "assets/bottom/home.svg",
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
             label: "Home",
+            activeLabelTextStyle: const TextStyle(color: Colors.blue),
+            inactiveLabelTextStyle: const TextStyle(color: Colors.grey),
           ),
-          page: HomePage(),
-        ),
-        const BottomCupertinoTab(
-          tab: BottomCupertinoTabItem(
-            activeIcon: "assets/bottom/bell.svg",
-            inactiveIcon: "assets/bottom/bell.svg",
-            label: "Notifications",
-          ),
-          page: NotificationsPage(),
+          page: const HomePage(),
         ),
         BottomCupertinoTab(
-          tab: const BottomCupertinoTabItem(
-            empty: true,
+          tab: BottomCupertinoTabItem(
+            activeIcon: SvgPicture.asset(
+              "assets/bottom/bell.svg",
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.blue,
+                BlendMode.srcIn,
+              ),
+            ),
+            inactiveIcon: SvgPicture.asset(
+              "assets/bottom/bell.svg",
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
+            label: "Notifications",
+            activeLabelTextStyle: const TextStyle(color: Colors.blue),
+            inactiveLabelTextStyle: const TextStyle(color: Colors.grey),
           ),
-          page: const SizedBox.shrink(),
+          page: const NotificationsPage(),
         ),
         const BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: "assets/bottom/contacts.svg",
-            inactiveIcon: "assets/bottom/contacts.svg",
+            empty: true,
+          ),
+          page: SizedBox.shrink(),
+        ),
+        BottomCupertinoTab(
+          tab: BottomCupertinoTabItem(
+            activeIcon: SvgPicture.asset(
+              "assets/bottom/contacts.svg",
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.blue,
+                BlendMode.srcIn,
+              ),
+            ),
+            inactiveIcon: SvgPicture.asset(
+              "assets/bottom/contacts.svg",
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
             notificationsCounter: 4,
             showNotifications: true,
             label: "Contacts",
+            activeLabelTextStyle: const TextStyle(color: Colors.blue),
+            inactiveLabelTextStyle: const TextStyle(color: Colors.grey),
           ),
-          page: ContactsPage(),
+          page: const ContactsPage(),
         ),
-        const BottomCupertinoTab(
+        BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: "assets/bottom/settings.svg",
-            inactiveIcon: "assets/bottom/settings.svg",
+            activeIcon: SvgPicture.asset(
+              "assets/bottom/settings.svg",
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.blue,
+                BlendMode.srcIn,
+              ),
+            ),
+            inactiveIcon: SvgPicture.asset(
+              "assets/bottom/settings.svg",
+              height: 22,
+              colorFilter: const ColorFilter.mode(
+                Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
             label: "Settings",
+            activeLabelTextStyle: const TextStyle(color: Colors.blue),
+            inactiveLabelTextStyle: const TextStyle(color: Colors.grey),
           ),
           page: SettingsPage(),
         ),

@@ -91,20 +91,24 @@ Each tab is linked to a corresponding page and icon, with maintained state and n
 * **Custom Colors and Themes**: Customize the color scheme and theme to match your app's design. You can set colors for both the active and inactive states.
 * **Adjustable Size and Positioning**: The size and positioning of the tab bar and its elements can be adjusted to suit your layout needs.
 
-### `BottomCupertinoTabbar` Customization options
-| Properties                      | Description                                                                            |
-|---------------------------------|----------------------------------------------------------------------------------------|
-| activeColor                     | Color for the active tab icon and text                                                 |
-| inactiveColor                   | Color for the inactive tab icons and text.                                             |
-| notificationsBadgeColor         | Color for notification badges.                                                         |
-| firstActiveIndex                | Index of the initially active tab.                                                     |
-| resizeToAvoidBottomInset        | Resizes the bottom bar when the keyboard appears.                                      |
-| showLabels                      | Shows labels below icons.                                                              |
-| onTabPressed                    | Callback function for customizing tabs per index.                                      |
-| children                        | A list of BottomCupertinoTab widgets that represent each tab in the tab bar.           |
-| floatingActionButton            | An optional floating action button (or another widget) to be displayed on the tab bar. |
-| floatingActionButtonLocation    | The location of the floating action button on the tab bar.                             |
-| backgroundColor                 | The background color of the tab bar. Defaults to Colors.white.                         |
+### `BottomCupertinoTabbar` Main customization options
+| Properties                   | Description                                                                            |
+|------------------------------|----------------------------------------------------------------------------------------|
+| activeColor                  | Color for the active tab icon and text                                                 |
+| inactiveColor                | Color for the inactive tab icons and text.                                             |
+| notificationsBadgeColor      | Color for notification badges.                                                         |
+| firstActiveIndex             | Index of the initially active tab.                                                     |
+| resizeToAvoidBottomInset     | Resizes the bottom bar when the keyboard appears.                                      |
+| showLabels                   | Shows labels below icons.                                                              |
+| onTabPressed                 | Callback function for customizing tabs per index and accessing navigators.             |
+| children                     | A list of BottomCupertinoTab widgets that represent each tab in the tab bar.           |
+| floatingActionButton         | An optional floating action button (or another widget) to be displayed on the tab bar. |
+| floatingActionButtonLocation | The location of the floating action button on the tab bar.                             |
+| resizeToAvoidBottomInset     | Controls whether the bottom bar should resize when the on-screen keyboard appears.     |
+| backgroundColor              | The background color of the tab bar. Defaults to Colors.white.                         |
+| showLabels                   | Flag to control whether labels are shown on the tab items.                             |
+| appBar                       | Optional AppBar to be displayed at the top of the BottomCupertinoTabbar element.       |
+| overrideIconsColor           | Flag to control whether to override the color of the icons.                            |
 
 
 ## Tabs and State preservation
@@ -137,40 +141,53 @@ The `BottomCupertinoTabItem` class is used to configure the appearance and behav
 ```dart
 class BottomCupertinoTabItem {
 
-  final String? activeIcon;
-  final String? inactiveIcon;
+  /// The icon to display.
+  final Widget? icon;
+
+  /// The icon when the tab is active.
+  final Widget? activeIcon;
+
+  /// The icon when the tab is inactive.
+  final Widget? inactiveIcon;
+
+  /// The text label for the tab.
   final String? label;
+
+  /// The number of notifications to be displayed on the tab.
   final int notificationsCounter;
+
+  /// Controls whether to show the notifications counter.
   final bool showNotifications;
+
+  /// Indicates if the tab is to be considered as an empty placeholder.
   final bool empty;
 
+  /// The text style to use for the label when the tab is active.
+  final TextStyle? activeLabelTextStyle;
+
+  /// The text style to use for the label when the tab is inactive.
+  final TextStyle? inactiveLabelTextStyle;
+
   const BottomCupertinoTabItem({
+    this.icon,
     this.activeIcon,
     this.inactiveIcon,
     this.label,
     this.notificationsCounter = 0,
     this.showNotifications = false,
     this.empty = false,
+    this.activeLabelTextStyle,
+    this.inactiveLabelTextStyle,
   });
 }
 ```
-Parameters:
-* **activeIcon** (String?): The path for the icon to display when the tab is active.
-* **inactiveIcon** (String?): The path for the icon to display when the tab is inactive.
-* **label** (String?): The text label for the tab.
-* **notificationsCounter** (int): An integer value to show as a counter for notifications on the tab. Defaults to 0.
-* **showNotifications** (bool): A boolean to control the visibility of the notifications counter badge. Defaults to false.
-* **empty** (bool): A boolean to indicate if the tab should be considered as an empty placeholder. Defaults to false.
 
 Example of a `BottomCupertinoTab`
 ```dart
-const BottomCupertinoTab(
+BottomCupertinoTab(
   tab: BottomCupertinoTabItem(
-    activeIcon: "path/to/active_icon",
-    inactiveIcon: "path/to/inactive_icon",
+    icon: Icon(Icons.home, size: 22,),
     label: "Home",
-    notificationsCounter: 10,
-    showNotifications: true,
   ),
   page: HomePage(),
 )
@@ -190,16 +207,16 @@ import 'package:flutter/material.dart';
 import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
 
 import '../pages/pages.dart';
+import 'example_manager/example_manager.dart';
 
-class SimpleTabBar extends StatefulWidget {
-  const SimpleTabBar({super.key});
+class EasyTabbar extends StatefulWidget {
+  const EasyTabbar({super.key});
 
   @override
-  State<SimpleTabBar> createState() => _SimpleTabBarState();
+  State<EasyTabbar> createState() => _EasyTabbarState();
 }
 
-class _SimpleTabBarState extends State<SimpleTabBar> {
-
+class _EasyTabbarState extends State<EasyTabbar> {
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(
@@ -209,46 +226,48 @@ class _SimpleTabBarState extends State<SimpleTabBar> {
       firstActiveIndex: 0,
       resizeToAvoidBottomInset: false,
       showLabels: true,
+      overrideIconsColor: true,
+      tabbarModel: (model, nestedNavigator) {
+        ExampleManager().tabbarProviderModel = model;
+        ExampleManager().nestedNavigator = nestedNavigator;
+      },
       onTabPressed: (index, model, nestedNavigator) {
         if (index != model.currentTab) {
           model.changePage(index);
         } else {
           if (nestedNavigator[index]?.currentContext != null) {
-            Navigator.of(nestedNavigator[index]!.currentContext!).popUntil((route) => route.isFirst);
+            Navigator.of(nestedNavigator[index]!.currentContext!)
+                .popUntil((route) => route.isFirst);
           }
         }
       },
-      children: [
-        const BottomCupertinoTab(
+      children: const [
+        BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: "assets/bottom/home.svg",
-            inactiveIcon: "assets/bottom/home.svg",
+            icon: Icon(Icons.home, size: 22,),
             label: "Home",
           ),
           page: HomePage(),
         ),
-        const BottomCupertinoTab(
+        BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: "assets/bottom/bell.svg",
-            inactiveIcon: "assets/bottom/bell.svg",
+            icon: Icon(Icons.notifications, size: 22,),
             label: "Notifications",
           ),
           page: NotificationsPage(),
         ),
-        const BottomCupertinoTab(
+        BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: "assets/bottom/contacts.svg",
-            inactiveIcon: "assets/bottom/contacts.svg",
+            icon: Icon(Icons.contacts, size: 22,),
             notificationsCounter: 4,
             showNotifications: true,
             label: "Contacts",
           ),
           page: ContactsPage(),
         ),
-        const BottomCupertinoTab(
+        BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: "assets/bottom/settings.svg",
-            inactiveIcon: "assets/bottom/settings.svg",
+            icon: Icon(Icons.settings, size: 22,),
             label: "Settings",
           ),
           page: SettingsPage(),
@@ -258,6 +277,8 @@ class _SimpleTabBarState extends State<SimpleTabBar> {
   }
 }
 ```
+
+More examples can be found in the `example` folder of the package.
 
 ## Conclusion
 `BottomCupertinoTabbar` is an ideal choice for Flutter apps requiring a bottom navigation bar with advanced customization, including the addition of a floating action button or other widgets in various positions.
