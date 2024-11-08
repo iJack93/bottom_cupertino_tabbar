@@ -4,22 +4,24 @@ import 'package:bottom_cupertino_tabbar/bottom_cupertino_tabbar.dart';
 import '../pages/pages.dart';
 import 'example_manager/example_manager.dart';
 
-class SimpleTabBar extends StatefulWidget {
-  const SimpleTabBar({super.key});
+class EasyTabbar extends StatefulWidget {
+  const EasyTabbar({super.key});
 
   @override
-  State<SimpleTabBar> createState() => _SimpleTabBarState();
+  State<EasyTabbar> createState() => _EasyTabbarState();
 }
 
-class _SimpleTabBarState extends State<SimpleTabBar> {
+class _EasyTabbarState extends State<EasyTabbar> {
   @override
   Widget build(BuildContext context) {
     return BottomCupertinoTabbar(
+      activeColor: Colors.blue,
+      inactiveColor: Colors.grey[300]!,
       notificationsBadgeColor: Colors.red,
       firstActiveIndex: 0,
       resizeToAvoidBottomInset: false,
       showLabels: true,
-      overrideIconsColor: false,
+      overrideIconsColor: true,
       tabbarModel: (model, nestedNavigator) {
         ExampleManager().tabbarProviderModel = model;
         ExampleManager().nestedNavigator = nestedNavigator;
@@ -37,75 +39,43 @@ class _SimpleTabBarState extends State<SimpleTabBar> {
       children: const [
         BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: Icon(
+            icon: Icon(
               Icons.home,
               size: 22,
-              color: Colors.blue,
-            ),
-            inactiveIcon: Icon(
-              Icons.home_outlined,
-              size: 22,
-              color: Colors.grey,
             ),
             label: "Home",
-            activeLabelTextStyle: TextStyle(color: Colors.blue),
-            inactiveLabelTextStyle: TextStyle(color: Colors.grey),
           ),
           page: HomePage(),
         ),
         BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: Icon(
+            icon: Icon(
               Icons.notifications,
               size: 22,
-              color: Colors.blue,
-            ),
-            inactiveIcon: Icon(
-              Icons.notifications_outlined,
-              size: 22,
-              color: Colors.grey,
             ),
             label: "Notifications",
-            activeLabelTextStyle: TextStyle(color: Colors.blue),
-            inactiveLabelTextStyle: TextStyle(color: Colors.grey),
           ),
           page: NotificationsPage(),
         ),
         BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: Icon(
+            icon: Icon(
               Icons.contacts,
               size: 22,
-              color: Colors.blue,
-            ),
-            inactiveIcon: Icon(
-              Icons.contacts_outlined,
-              size: 22,
-              color: Colors.grey,
             ),
             notificationsCounter: 4,
             showNotifications: true,
             label: "Contacts",
-            activeLabelTextStyle: TextStyle(color: Colors.blue),
-            inactiveLabelTextStyle: TextStyle(color: Colors.grey),
           ),
           page: ContactsPage(),
         ),
         BottomCupertinoTab(
           tab: BottomCupertinoTabItem(
-            activeIcon: Icon(
+            icon: Icon(
               Icons.settings,
               size: 22,
-              color: Colors.blue,
-            ),
-            inactiveIcon: Icon(
-              Icons.settings_outlined,
-              size: 22,
-              color: Colors.grey,
             ),
             label: "Settings",
-            activeLabelTextStyle: TextStyle(color: Colors.blue),
-            inactiveLabelTextStyle: TextStyle(color: Colors.grey),
           ),
           page: SettingsPage(),
         ),

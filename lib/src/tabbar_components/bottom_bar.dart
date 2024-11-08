@@ -18,10 +18,10 @@ class BottomBar extends StatefulWidget {
   final BottomCupertinoTabbarProviderModel model;
 
   /// Color for active tab items.
-  final Color activeColor;
+  final Color? activeColor;
 
   /// Color for inactive tab items.
-  final Color inactiveColor;
+  final Color? inactiveColor;
 
   /// Color for notification badges on the tab items.
   final Color notificationsBadgeColor;
@@ -40,7 +40,11 @@ class BottomBar extends StatefulWidget {
   /// Flag to show or hide labels under tab icons.
   final bool showLabels;
 
+  /// Background color for the bottom navigation bar.
   final Color? backgroundColor;
+
+  /// Flag to control whether to override the color of the icons.
+  final bool overrideIconsColor;
 
   /// Constructor for BottomBar.
   const BottomBar({
@@ -55,6 +59,7 @@ class BottomBar extends StatefulWidget {
     required this.onTabPressed,
     this.showLabels = false,
     this.backgroundColor,
+    required this.overrideIconsColor,
   });
 
   @override
@@ -77,8 +82,9 @@ class _BottomBarState extends State<BottomBar> {
       if (!bottomCupertinoTab.tab.empty) {
         bool isActive = widget.model.currentTab == i;
         final tab = TabItem(
-          activeIcon: bottomCupertinoTab.tab.activeIcon!,
-          inactiveIcon: bottomCupertinoTab.tab.inactiveIcon!,
+          icon: bottomCupertinoTab.tab.icon,
+          activeIcon: bottomCupertinoTab.tab.activeIcon,
+          inactiveIcon: bottomCupertinoTab.tab.inactiveIcon,
           label: bottomCupertinoTab.tab.label,
           showNotifications: bottomCupertinoTab.tab.showNotifications,
           notificationsCounter: bottomCupertinoTab.tab.notificationsCounter,
@@ -88,6 +94,9 @@ class _BottomBarState extends State<BottomBar> {
           active: isActive,
           isFirstActiveIndex: widget.firstActiveIndex == i,
           showLabels: widget.showLabels,
+          overrideIconsColor: widget.overrideIconsColor,
+          activeLabelTextStyle: bottomCupertinoTab.tab.activeLabelTextStyle,
+          inactiveLabelTextStyle: bottomCupertinoTab.tab.inactiveLabelTextStyle,
         );
         results.add(BottomNavigationBarItem(icon: tab));
       } else {

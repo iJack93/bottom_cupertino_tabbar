@@ -1,3 +1,12 @@
+## 2.0.0
+* (Breaking changes)
+* Added more flexibility to the `BottomCupertinoTabbar` widget to define its own `BottomCupertinoTabItem` with custom widgets, instead of a single SVG string (thanks @nissaba). In this way, you can define your own icons with custom widgets.
+* Updated `tabbarModel` callback on `BottomCupertinoTabbar` main widget to expose nested navigator, in this way you can access the specific navigator of each tab.
+* Added `overrideIconsColor` flag to `BottomCupertinoTabbar` main widget to override the default icons color.
+* `activeColor` and `inactiveColor` properties are now optional, used in combination with `overrideIconsColor` flag.
+* Updated `BottomCupertinoTabItem`: now accepts new properties like single icon, active and inactive icons and active and inactive styles for labels.
+* Added more examples in the example app and updated the documentation.
+
 ## 1.0.13
 
 * Exposed some Scaffold properties to allow more customizations options. 
