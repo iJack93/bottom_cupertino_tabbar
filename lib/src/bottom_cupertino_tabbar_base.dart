@@ -68,6 +68,9 @@ class BottomCupertinoTabbar extends StatefulWidget {
   /// Flag to control whether to override the color of the icons.
   final bool overrideIconsColor;
 
+  /// Custom height for the tab bar.
+  final double? height;
+
   /// Constructs a BottomCupertinoTabbar.
   const BottomCupertinoTabbar({
     super.key,
@@ -96,6 +99,7 @@ class BottomCupertinoTabbar extends StatefulWidget {
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
     this.overrideIconsColor = false,
+    this.height,
   });
 
   @override
@@ -120,7 +124,7 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
     _nestedNavigator = _createNestedNavigator(tabs.length);
   }
 
-  /// Creates and initializes a map of GlobalKey<NavigatorState> for managing nested navigation.
+  // Creates and initializes a map of GlobalKey<NavigatorState> for managing nested navigation.
   Map<int, GlobalKey<NavigatorState>> _createNestedNavigator(int items) {
     Map<int, GlobalKey<NavigatorState>> localNestedNavigator = {};
     for (int i = 0; i <= items; i++) {
@@ -169,7 +173,10 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
           }
           var currentTab = model.currentTab;
           return NavigatorPopHandler(
-            onPop: () async => await _onPopInvoked(currentTab),
+            onPopWithResult: (result) async {
+              await _onPopInvoked(
+                  currentTab); // ignore `result` if you don’t need it
+            },
             child: Scaffold(
               backgroundColor: widget.backgroundColor,
               resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
@@ -200,6 +207,7 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
                 showLabels: widget.showLabels,
                 backgroundColor: widget.backgroundColor,
                 overrideIconsColor: widget.overrideIconsColor,
+                height: widget.height,
               ),
               body: IndexedStack(
                 index: currentTab,

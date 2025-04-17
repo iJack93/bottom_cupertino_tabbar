@@ -46,6 +46,9 @@ class BottomBar extends StatefulWidget {
   /// Flag to control whether to override the color of the icons.
   final bool overrideIconsColor;
 
+  /// Custom tabbar height
+  final double? height;
+
   /// Constructor for BottomBar.
   const BottomBar({
     super.key,
@@ -60,6 +63,7 @@ class BottomBar extends StatefulWidget {
     this.showLabels = false,
     this.backgroundColor,
     required this.overrideIconsColor,
+    this.height,
   });
 
   @override
@@ -116,9 +120,10 @@ class _BottomBarState extends State<BottomBar> {
   /// Adjusts height based on platform and keyboard visibility.
   double _getToolbarHeight(BuildContext context) {
     double result = 0;
-    double height = !kIsWeb && defaultTargetPlatform == TargetPlatform.android
-        ? _kTabBarHeight + 8
-        : _kTabBarHeight;
+    double height = widget.height ??
+        (!kIsWeb && defaultTargetPlatform == TargetPlatform.android
+            ? _kTabBarHeight + 8
+            : _kTabBarHeight);
     final bool isKeyboardOpened = _isKeyboardOpen(context);
     if (isKeyboardOpened) {
       height = 0;

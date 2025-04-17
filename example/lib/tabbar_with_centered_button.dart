@@ -157,7 +157,7 @@ class _TabBarWithCenteredButtonState extends State<TabBarWithCenteredButton> {
             activeLabelTextStyle: const TextStyle(color: Colors.blue),
             inactiveLabelTextStyle: const TextStyle(color: Colors.grey),
           ),
-          page: SettingsPage(),
+          page: const SettingsPage(),
         ),
       ],
     );

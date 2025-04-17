@@ -22,6 +22,7 @@ class _EasyTabbarState extends State<EasyTabbar> {
       resizeToAvoidBottomInset: false,
       showLabels: true,
       overrideIconsColor: true,
+      height: 70,
       tabbarModel: (model, nestedNavigator) {
         ExampleManager().tabbarProviderModel = model;
         ExampleManager().nestedNavigator = nestedNavigator;
