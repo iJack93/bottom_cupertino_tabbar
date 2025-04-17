@@ -1,4 +1,4 @@
-library bottom_cupertino_tabbar;
+library;
 
 export 'src/bottom_cupertino_tabbar_base.dart';
 export 'src/tabbar_components/tab_item.dart';

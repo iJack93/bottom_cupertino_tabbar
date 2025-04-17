@@ -1,3 +1,8 @@
+## 2.0.1
+* Updated dependencies.
+* Replaced deprecated onPop signature with onPopWithResult.
+* Added custom height property on `BottomCupertinoTabbar` to allow custom height for the tabbar.
+
 ## 2.0.0
 * (Breaking changes)
 * Added more flexibility to the `BottomCupertinoTabbar` widget to define its own `BottomCupertinoTabItem` with custom widgets, instead of a single SVG string (thanks @nissaba). In this way, you can define your own icons with custom widgets.
