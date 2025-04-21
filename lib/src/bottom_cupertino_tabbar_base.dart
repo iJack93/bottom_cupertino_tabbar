@@ -173,10 +173,6 @@ class _BottomCupertinoTabbarState extends State<BottomCupertinoTabbar> {
           }
           var currentTab = model.currentTab;
           return NavigatorPopHandler(
-            onPopWithResult: (result) async {
-              await _onPopInvoked(
-                  currentTab); // ignore `result` if you don’t need it
-            },
             child: Scaffold(
               backgroundColor: widget.backgroundColor,
               resizeToAvoidBottomInset: widget.resizeToAvoidBottomInset,
